@@ -1,0 +1,8 @@
+<%- include("../shared/_header.ejs", {title: "Users"}) %>
+<% users.forEach(function(u) { %>
+  <div style="background:red;margin-bottom:10px;">
+    <%= u.email %> <br/>
+    <%= u.name %>
+  </div>
+<% }) %>
+<%- include("../shared/_footer.ejs") %>
