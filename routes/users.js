@@ -1,15 +1,11 @@
 var express = require('express');
+const { User } = require('../models');
 var router = express.Router();
 
-var users = [
-  { email: "pepito@gmail.com", name: "Pepito" },
-  { email: "jona@gmail.com", name: "Jona" },
-  { email: "Joshep@gmail.com", name: "Joshep" },
-]
-
 // Lista todos los usuarios 
-router.get('/', function(req, res, next) {
-  res.render("users/index", {users} );
+router.get('/', async function(req, res, next) {
+  const users = await User.findAll();
+  res.render("users/index", { users });
 });
 
 // Muestra el formulario de crear usuario
@@ -18,8 +14,13 @@ router.get('/new', function(req, res, next) {
 });
 
 // Crea un usuario en la DB y muestra vista de Ok
-router.post('/', function(req, res, next) {
-  console.log(req)
+router.post('/', async function(req, res, next) {
+  console.log(req.body);
+  await User.create({
+    firstName: req.body.firstName, 
+    lastName : req.body.lastName,
+    email: req.body.email,
+  });
   res.redirect("/users");
 });
 

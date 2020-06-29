@@ -2,7 +2,7 @@
 <% users.forEach(function(u) { %>
   <div style="background:red;margin-bottom:10px;">
     <%= u.email %> <br/>
-    <%= u.name %>
+    <%= u.firstName %> <%= u.lastName %>
   </div>
 <% }) %>
 <%- include("../shared/_footer.ejs") %>
