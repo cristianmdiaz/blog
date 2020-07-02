@@ -1,8 +1,24 @@
 <%- include("../shared/_header.ejs", {title: "Users"}) %>
-<% users.forEach(function(u) { %>
-  <div style="background:red;margin-bottom:10px;">
-    <%= u.email %> <br/>
-    <%= u.firstName %> <%= u.lastName %>
-  </div>
-<% }) %>
+  
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">FIRST NAME</th>
+      <th scope="col">LAST NAME</th>
+      <th scope="col">EMAIL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(function(u) { %>
+      <tr>
+        <td><%= u.id %></td>
+        <td><%= u.firstName %></td>
+        <td><%= u.lastName %></td>
+        <td><%= u.email %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+  
 <%- include("../shared/_footer.ejs") %>

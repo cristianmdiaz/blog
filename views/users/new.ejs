@@ -1,22 +1,21 @@
-<form action="/users" method="POST">
-  
-  <p>
-    <label for="firstName">First Name</label>
-    <input name="firstName" type="text"/>
-  </p>
+<%- include("../shared/_header.ejs", {title: "Users-news"}) %>
 
-  <p>
-   <label for="lastName">Last Name</label>
-   <input name="lastName" type="text"/>
-  </p>
+<div class="col-lg-4">
+  <form action="/users" method="POST">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input name="firstName" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input name="lastName" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input name="email" type="email" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 
-  <p>
-    <label for="email">Email</label>
-    <input name="email" type="email"/>
-   </p>
-
-  <p>
-   <input type="submit" value="Enviar datos"/>
-  </p>
-
-</form>
+<%- include("../shared/_footer.ejs") %>
