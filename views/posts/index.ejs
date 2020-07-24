@@ -1,1 +1,19 @@
-<h1><%= "cristian" %></h1>
+<%- include("../shared/_header.ejs", {title: "Posts"}) %>
+
+<div>
+  <h1>Blog Articles</h1>
+  <a href="/posts/new" class="btn btn-success">New Post</a> 
+</div>
+
+<% posts.forEach(function(p) { %>
+   <div class="card mt-4">
+      <div class=card-body>
+        <h4 class="card-title"><%= p.title %></h4>
+        <div class="card-subtitle text-muted mb-2"><%= p.createdAt %></div>
+        <div class="card-text mb-2"><%= p.description %></div>  
+        <a href="posts/<%= p.id %>" class="btn btn-primary">Read more</a>
+      </div>
+   </div>
+<% }) %>
+
+<%- include("../shared/_footer.ejs") %>

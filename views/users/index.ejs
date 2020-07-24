@@ -1,24 +1,31 @@
 <%- include("../shared/_header.ejs", {title: "Users"}) %>
-  
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">FIRST NAME</th>
-      <th scope="col">LAST NAME</th>
-      <th scope="col">EMAIL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% users.forEach(function(u) { %>
+
+<div class="float-left">
+  <h1>List of Users</h1>
+</div>
+<div>
+   <a href="/users/new" class="btn btn-success mp-3 float-right">New User</a> 
+</div>
+
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= u.id %></td>
-        <td><%= u.firstName %></td>
-        <td><%= u.lastName %></td>
-        <td><%= u.email %></td>
+        <th scope="col">ID</th>
+        <th scope="col">FIRST NAME</th>
+        <th scope="col">LAST NAME</th>
+        <th scope="col">EMAIL</th>
       </tr>
-    <% }) %>
-  </tbody>
-</table>
-  
+    </thead>
+    <tbody>
+      <% users.forEach(function(u) { %>
+        <tr>
+          <td><%= u.id %></td>
+          <td><%= u.firstName %></td>
+          <td><%= u.lastName %></td>
+          <td><%= u.email %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
 <%- include("../shared/_footer.ejs") %>
