@@ -1,0 +1,19 @@
+<form action="<%= action %>" method="<%= method %>">
+  <div class="form-group">
+    <label for="userName">User Name</label>
+    <input name="userName" type="text" class="form-control" value="<%= user.userName %>">
+  </div>
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input name="firstName" type="text" class="form-control" value="<%= user.firstName %>">
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input name="lastName" type="text" class="form-control" value="<%= user.lastName %>">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input name="email" type="email" class="form-control" value="<%= user.email %>">
+  </div>
+  <button type="submit" class="btn btn-primary">Send</button>
+</form>

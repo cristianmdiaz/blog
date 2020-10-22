@@ -15,7 +15,11 @@ Post.init({
   body: {
     type: DataTypes.STRING,
     allowNull: false
-  }
+  },
+  // userId: {
+  //   type: DataTypes.INTEGER,
+  //   allowNull: false
+  // },
 }, {
   // Other model options go here
   sequelize, // We need to pass the connection instance

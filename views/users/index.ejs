@@ -1,5 +1,11 @@
 <%- include("../shared/_header.ejs", {title: "Users"}) %>
 
+<% if(params.error=="0"){ %>
+  <div class="alert alert-success">
+    <%= params.message %>
+  </div>
+<% } %>
+
 <div class="float-left">
   <h1>List of Users</h1>
 </div>
@@ -11,18 +17,27 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
+        <th scope="col">USER NAME</th>
         <th scope="col">FIRST NAME</th>
         <th scope="col">LAST NAME</th>
         <th scope="col">EMAIL</th>
+        <th scope="col">EDIT</th>
       </tr>
     </thead>
     <tbody>
       <% users.forEach(function(u) { %>
         <tr>
           <td><%= u.id %></td>
+          <td><%= u.userName %></td>
           <td><%= u.firstName %></td>
           <td><%= u.lastName %></td>
           <td><%= u.email %></td>
+          <td>
+              <a class="btn btn-primary" href="/users/<%= u.id %>/edit" role="button">Edit</a>
+              <form action="/users/<%= u.id %>/delete" method="post" style="display:inline;">
+                <input type="submit" value="Delete" class="btn btn-danger"/>
+              </form>    
+          </td>
         </tr>
       <% }) %>
     </tbody>

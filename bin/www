@@ -27,8 +27,8 @@ var server = http.createServer(app);
  */
 
 server.listen(port, function(){
-  models.User.sync();
-  models.Post.sync();
+  // models.User.sync();
+  // models.Post.sync();
   console.log('app listening on port ' + port);
 });
 server.on('error', onError);

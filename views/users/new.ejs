@@ -1,21 +1,13 @@
-<%- include("../shared/_header.ejs", {title: "Users-news"}) %>
+<%- include("../shared/_header.ejs", {title: "Users-new"}) %>
+
+<% if(params.error==1){ %>
+  <div class="alert alert-danger" role="alert">
+    There was an error trying to create an user!
+  </div>
+  <% } %>
 
 <div class="col-lg-4">
-  <form action="/users" method="POST">
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input name="firstName" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input name="lastName" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input name="email" type="email" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">Send</button>
-  </form>
+  <%- include("_form", { user: user, action: "/users", method: "Post" }) %>
 </div>
 
 <%- include("../shared/_footer.ejs") %>

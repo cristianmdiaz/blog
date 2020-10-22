@@ -1,0 +1,7 @@
+<%- include("../shared/_header.ejs", {title: "Users-edit"}) %>
+
+<div class="col-lg-4">
+  <%- include("_form", { user: user, action: "/users/" + user.id + "/edit", method: "POST" }) %>
+</div>
+
+<%- include("../shared/_footer.ejs") %>

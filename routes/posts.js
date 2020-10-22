@@ -2,14 +2,14 @@ var express = require('express');
 const { Post } = require('../models');
 var router = express.Router();
 
-// Lista todos los usuarios 
+// Lista todos los posts
 router.get('/', async function(req, res, next) {
   const posts = await Post.findAll();
   res.render("posts/index", { posts });
 });
 
 // Muestra cada Post con su contenido
-router.get('/:id', async function(req, res, next) {
+router.get('/:id([0-9]+)', async function(req, res, next) {
   try {
     const post = await Post.findByPk(req.params.id);
     res.render("posts/show", { post });
@@ -27,11 +27,13 @@ router.get('/new', function(req, res, next){
 router.post('/', async function(req, res, next) {
   try {
     await Post.create({
-      title: req.body.title, 
+      userid: "6",
+      title: req.body.title,  
       description : req.body.description,
       body: req.body.body,
     });
   } catch (error) {
+    console.log(error)
     return res.redirect("/posts/new?error=1");
   }
   res.redirect("/posts");
